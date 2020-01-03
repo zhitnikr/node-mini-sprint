@@ -6,14 +6,17 @@ This repo contains a client directory and a server directory. While it is all in
 
 Open 2 terminal windows.
 
-* In one terminal window open the client directory and run [live-server](https://www.npmjs.com/package/live-server). This is serving your client files. If you open your index.html from Finder (e.g. you are seeing `file:///` in the URL bar) you will run into CORS issues. Use live-server.
+* In one terminal window open the client directory and do the following:
+  - run [live-server](https://www.npmjs.com/package/live-server). This is serving your client files. If you open your index.html from Finder (e.g. you are seeing `file:///` in the URL bar) you will run into CORS issues. Use live-server.
+  - Your client will run, but it does not communicate with the server yet. You need to write the appropriate code.
 
 * In the other terminal window open the server directory and do the following:
   - `npm install`
   - `npm start` or `nodemon`
-  - Your server will run, but it will not respond to requests correctly until you write the appropriate code
+  - Your server will run, but it will not respond to requests correctly until you write the appropriate code.
 
-  The client will communicate with your server via jQuery's AJAX.
+## Client/Server Communications
+  The client will communicate with your server via jQuery's AJAX. For your convenience the jQuery script is in the index.html file already.
 
   Your server will listen for and respond to client requests. You are building an API similar to ones that you have used in the past. For this project you will be using Node (no Express allowed). In future projects you will use Express.
 

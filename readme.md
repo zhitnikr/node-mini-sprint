@@ -21,11 +21,11 @@ Open 2 terminal windows.
   Your server will listen for and respond to client requests. You are building an API similar to ones that you have used in the past. For this project you will be using Node (no Express allowed). In future projects you will use Express.
 
 ## Focus on understanding the following:
-What is the difference between the client and the server?
-What is the request/response cycle?
-What is CORS and how do you prevent CORS errors?
-What are http verbs? When are they used?
-What are http status codes and how do you respond with them?
-What is an endpoint and where do you see it?
-What tools can you use to test your server?
-Where do you see your server console.logs?
+- What is the difference between the client and the server?
+- What is the request/response cycle?
+- What is CORS and how do you prevent CORS errors?
+- What are http verbs? When are they used?
+- What are http status codes and how do you respond with them?
+- What is an endpoint and where do you see it?
+- What tools can you use to test your server?
+- Where do you see your server console.logs?

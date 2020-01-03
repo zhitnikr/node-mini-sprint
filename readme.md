@@ -29,3 +29,4 @@ Open 2 terminal windows.
 - What is an endpoint and where do you see it?
 - What tools can you use to test your server?
 - Where do you see your server console.logs?
+- **What parts of your code are asynchronous and how will you handle that?**

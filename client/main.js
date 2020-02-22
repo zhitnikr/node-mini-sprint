@@ -23,6 +23,9 @@ $(document).ready(function() {
   function addQuote(quote){
     
     //YOUR CODE HERE, Add a POST request
-
+    $.post('http://localhost:3000/quote', quote, response => {
+      $("form")[0].reset(); //clear the input field
+      $('#response').text(`Thank you for your submission: ${response}`);
+    });
   }
 });

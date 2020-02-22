@@ -13,6 +13,10 @@ $(document).ready(function() {
   function getQuote(){
 
     //YOUR CODE HERE, Add a GET request
+    $.get('http://localhost:3000/quote', data => {
+      let quote = $('#quote');
+      quote.append(`<h1>${data}</h1>`);
+    })
 
   }
 

@@ -48,6 +48,7 @@ const handleRequest = function(req, res) {
     let body = '';
     req.on('data', function (chunk) {
       body += chunk;
+      quotes.push(body);
     });
     req.on('end', function () {
       res.writeHead(200, headers);

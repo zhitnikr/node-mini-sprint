@@ -15,7 +15,7 @@ Open 2 terminal windows.
   - `npm start` or `nodemon`
   - Your server will run, but it will not respond to requests correctly until you write the appropriate code.
 ---
-## Step One: Raw Node
+## Step 1: Raw Node
 
 - [ ] Finish out the routing for the existing server to handle incoming client requests 
 
@@ -36,23 +36,26 @@ Open 2 terminal windows.
 - **What parts of your code are asynchronous and how will you handle that?**
 ---
 
-## Step Two: Refactor to Express
+## Step 2: Refactor to Express
 - [ ] Check out a new branch `express-server`
 - [ ] Refactor your existing server from http to Express.js
 
 Note: Use the [Express documentation](https://expressjs.com/) as your primary resource for this.
 
 ---
-## Step Three: Converting to React
+## Step 3: Converting to React
 
 - [ ] Check out a new branch `react-client`
 - [ ] In the `react-client` directory, build out a refactored version of the original frontend in React
+- [ ] Serve up your React client from your Express server using `express.static`
 - [ ] (Optional) Refactor your jQuery's AJAX client requests to use [Axios](https://www.npmjs.com/package/axios)
+
+The dependencies for React have been set up in the `react-client` directory.  To begin transpiling the code, run `npm run build` in your client terminal.
 
 Note: Use the [React documentation](https://reactjs.org/docs/getting-started.html) as your primary resource for this.
 
 ---
-## Step Four: Add data persistence
+## Step 4: Add data persistence
 
 - [ ] Check out a new branch `add-mysql`
 - [ ] Design a `schema.sql` for storing the existing application data
@@ -61,9 +64,10 @@ Note: Use the [React documentation](https://reactjs.org/docs/getting-started.htm
 Note: use the [MySQL](https://dev.mysql.com/doc/refman/8.0/en/) and [mysqljs](https://www.npmjs.com/package/mysql) documentation as your primary resources for this.
 
 ---
-## BONUS: Full CRUD
+## Step 5: Full CRUD
 
 - [ ] Check out a final branch `full-crud`
 - [ ] Expand the functionality of your React frontend until it sends at least one request of each CRUD category
 - [ ] Build out server routing to handle those requests
 - [ ] Refactor your persistence layer as-needed to support these new routes
+

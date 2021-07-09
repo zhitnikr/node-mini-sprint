@@ -14,6 +14,9 @@ Open 2 terminal windows.
   - `npm install`
   - `npm start` or `nodemon`
   - Your server will run, but it will not respond to requests correctly until you write the appropriate code.
+
+**Important Note**: After each step, **commit and push** your current progress. You'll notice in the later steps (Step 2 and onward), you are told to check out new branches. For pushing the work done on those branches, rather than `git push origin master`, you'll need to run `git push origin branchName`.
+
 ---
 ## Step 1: Raw Node
 
@@ -34,6 +37,7 @@ Open 2 terminal windows.
 - What tools can you use to test your server?
 - Where do you see your server console.logs?
 - **What parts of your code are asynchronous and how will you handle that?**
+
 ---
 
 ## Step 2: Refactor to Express

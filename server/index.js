@@ -2,7 +2,7 @@ const http = require('http');
 
 //headers to allows CORS requests
 const headers = {
-  "access-control-allow-origin": "*",
+  // "Access-Control-Allow-Origin": "*",
   "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
   "access-control-allow-headers": "content-type, accept",
   "access-control-max-age": 10
@@ -36,14 +36,29 @@ const handleRequest = function(req, res) {
     res.end();
   }
 
-  // TODO: GET ONE
-  if ((req.url == '/quote/' || req.url == '/quote') && req.method == "FILL ME IN") {
+  if (req.method == "OPTIONS") {
     //YOUR CODE HERE
-
+    res.writeHead(201), {...headers, Location: `http://localhost:${port}/quote`};
+    res.end(
+      JSON.stringify({'obj':123})
+    )
+  }
+  // TODO: GET ONE
+  else if ((req.url == '/quote' || req.url == '/quote/') && req.method == "GET") {
+    //YOUR CODE HERE
+    // res.writeHead(201), {...headers, Location: `http://localhost:${port}/quote`};
+    // res.header("Access-Control-Allow-Origin", "*")
+    res.end(
+      JSON.stringify({'obj':123})
+    )
   }
   // TODO: POST/CREATE
-  else if ((req.url == 'FILL ME IN' || req.url == 'FILL ME IN') && req.method == "FILL ME IN") {
+  else if ((req.url == '/quote/' || req.url == '/quote') && req.method == "POST") {
     //YOUR CODE HERE
+    // res.writeHead(201), {...headers, Location: `http://localhost:${port}/quote`};
+    // res.end(
+    //   JSON.stringify({'obj':123})
+    // )
   }
 
 //CATCH ALL ROUTE

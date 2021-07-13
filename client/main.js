@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
 // get a quote from the server when the page loads and add it to the dom
   getQuote();
 // when the user enters data and clicks submit, post the quote to the server
@@ -13,8 +12,9 @@ $(document).ready(function() {
     //YOUR CODE HERE, Add a GET request
     $.ajax({
       type: "GET",
-      success: () => {
-        addQuote()
+      url: "http://localhost:3000/quote",
+      success: (data) => {
+        addQuote(data)
       }
     })
   }

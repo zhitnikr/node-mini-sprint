@@ -1,3 +1,4 @@
+/*
 const http = require('http');
 
 //headers to allows CORS requests
@@ -57,10 +58,18 @@ const handleRequest = function(req, res) {
     })
     req.on('end', () => {
       // console.log(outsidetheScope)
-      quotes.push(JSON.parse(outsidetheScope).quote);
-      console.log(quotes);
-      res.writeHead(201, {...headers, Location: `http://localhost:${port}/quote`});
-      res.end();
+      if (JSON.parse(outsidetheScope).quote.length > 0) {
+        quotes.push(JSON.parse(outsidetheScope).quote);
+        console.log(quotes);
+        res.writeHead(201, {...headers, Location: `http://localhost:${port}/quote`});
+        res.end();
+      } else {
+        res.writeHead(400, {...headers, Location: `http://localhost:${port}/quote`});
+        res.end(
+          console.log('enter a valid quote')
+        );
+
+      }
     })
     // res.end(quotes.push(req.body))
   }
@@ -74,7 +83,8 @@ const handleRequest = function(req, res) {
 }
 
 const server = http.createServer(handleRequest);
-server.listen(port);
+// server.listen(port);
 
 console.log('Server is running in the terminal!');
 console.log(`Listening on http://localhost:${port}`);
+*/

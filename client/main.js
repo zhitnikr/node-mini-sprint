@@ -3,6 +3,7 @@ $(document).ready(function() {
   getQuote();
 // when the user enters data and clicks submit, post the quote to the server
   $('#submit').click((e) => {
+    console.log('after the e')
     e.preventDefault();
     let quote = $('input').val();
     addQuote(quote);
@@ -14,7 +15,8 @@ $(document).ready(function() {
       type: "GET",
       url: "http://localhost:3000/quote",
       success: (data) => {
-        addQuote(data)
+        // $("#quote").html('')
+        $("#quote").append(data)
       }
     })
   }
@@ -22,6 +24,15 @@ $(document).ready(function() {
   function addQuote(quote){
 
     //YOUR CODE HERE, Add a POST request
-    $("body").append(quote)
+    $("#quote").html('')
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:3000/quote",
+      data: JSON.stringify({ quote: quote }),
+      success: () => {
+        console.log('Succes');
+        $("#quote").append(quote)
+      }
+    })
   }
 });

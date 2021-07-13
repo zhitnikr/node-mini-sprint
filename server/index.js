@@ -28,7 +28,6 @@ function getRandomInt(min, max) {
 
 const handleRequest = function(req, res) {
   console.log(`Endpoint: ${req.url} Method: ${req.method}`);
-  console.log(res.body)
 
   // redirect users to /quote if they try to hit the homepage. This should already work, no changes needed
   if (req.url == '/') {
@@ -45,15 +44,25 @@ const handleRequest = function(req, res) {
   // TODO: GET ONE
   else if ((req.url == '/quote' || req.url == '/quote/') && req.method == "GET") {
     //YOUR CODE HERE
-    res.writeHead(201, {...headers, Location: `http://localhost:${port}/quote`});
+    res.writeHead(200, {...headers, Location: `http://localhost:${port}/quote`});
     // res.header("Access-Control-Allow-Origin", "*")
-    res.end(quotes[getRandomInt(0, 5)])
+    res.end(quotes[getRandomInt(0, (quotes.length - 1))])
   }
   // TODO: POST/CREATE
   else if ((req.url == '/quote/' || req.url == '/quote') && req.method == "POST") {
     //YOUR CODE HERE
-    res.writeHead(202, {...headers, Location: `http://localhost:${port}/quote`});
-    res.end()
+    var outsidetheScope = '';
+    req.on('data', (data) => {
+      outsidetheScope += data;
+    })
+    req.on('end', () => {
+      // console.log(outsidetheScope)
+      quotes.push(JSON.parse(outsidetheScope).quote);
+      console.log(quotes);
+      res.writeHead(201, {...headers, Location: `http://localhost:${port}/quote`});
+      res.end();
+    })
+    // res.end(quotes.push(req.body))
   }
 
 //CATCH ALL ROUTE

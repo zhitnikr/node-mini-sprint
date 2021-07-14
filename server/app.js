@@ -1,4 +1,5 @@
 const express = require('express');
+const { connection } = require('./db')
 const cors = require('cors')
 // const router = express.Router(); // ? is this necessary ?
 const app = express();
@@ -6,7 +7,7 @@ const path = require('path');
 // const bodyParser = require('body-parser');
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 // app.use('/', router)
 // app.use(bodyParser);
 // app.use(bodyParser.json());
@@ -31,6 +32,7 @@ function getRandomInt(min, max) {
 }
 
 app.get('/quotes', (req, res) => {
+  // SQL COMMAND HERE
   console.log('this is a get mhan')
   // console.log(res.body)
   res.send(quotes[getRandomInt(0, quotes.length - 1)])
@@ -39,6 +41,7 @@ app.get('/quotes', (req, res) => {
 app.post('/quotes', (req, res) => {
   // res.setHeader('Content-Type', 'application/json');
   // console.log('what is the req body: ', req.body);
+  // SQL COMMAND HERE
   if (Object.values(req.body)[0].length > 0 ) {
     quotes.push(Object.values(req.body)[0]);
     console.log(quotes)
@@ -52,6 +55,6 @@ app.post('/quotes', (req, res) => {
 // app.use(express.static('../react-client/dist'))
 app.use(express.static(path.join(__dirname, '../react-client/dist')))
 app.listen(port);
-console.log('checkdirname: ', __dirname.toString())
-console.log('Server is running in the terminal!');
+// console.log('checkdirname: ', __dirname.toString())
+// console.log('Server is running in the terminal!');
 console.log(`Listening on http://localhost:${port}`);

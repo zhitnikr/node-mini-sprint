@@ -61,7 +61,7 @@ class App extends React.Component {
         })
         // console.log(response.data)
         .catch((error) => {
-            this.setState({ quote: 'No quotes' });
+            this.setState({ quote: 'Enter a valid quote' });
             console.error('There was an error!', error);
         });
   }
@@ -71,7 +71,7 @@ class App extends React.Component {
     return (
       <div>
         <h3>RandomQuotes!</h3>
-        <div>{'this.state.quote = ' + this.state.quote}</div>
+        <h2>{'this.state.quote = ' + this.state.quote}</h2>
         <input value={this.state.value} onChange={this.handleChange}/>
         <button onClick={this.handleGet}>Get</button><button onClick={this.handleSubmit}>Submit</button>
         {/* <div>

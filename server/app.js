@@ -28,7 +28,7 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
-
+//2
 app.get('/quote', (req, res) => {
   console.log('this is a get mhan')
   // console.log(res.body)

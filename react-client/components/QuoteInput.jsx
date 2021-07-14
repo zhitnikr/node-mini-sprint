@@ -32,7 +32,7 @@ class QuoteInput extends React.Component {
             console.error('There was an error!', error);
         });
   }
-
+//2
   render() {
     return (
       <div>

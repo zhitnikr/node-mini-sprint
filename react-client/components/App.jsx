@@ -54,10 +54,10 @@ class App extends React.Component {
     event.preventDefault();
     console.log('you hit submit! ');
     axios.post('http://localhost:3000/quotes', {
-      field: this.state.field
+      quote: this.state.field
     })
         .then((response) => {
-          this.setState({quote: response.data})
+          this.setState({quote: this.state.field})
         })
         // console.log(response.data)
         .catch((error) => {

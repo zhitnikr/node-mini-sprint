@@ -39,8 +39,8 @@ app.get('/quotes', (req, res) => {
 app.post('/quotes', (req, res) => {
   // res.setHeader('Content-Type', 'application/json');
   // console.log('what is the req body: ', req.body);
-  if (Object.keys(req.body)[0].length > 0) {
-    quotes.push(Object.keys(req.body)[0]);
+  if (Object.values(req.body)[0].length > 0 ) {
+    quotes.push(Object.values(req.body)[0]);
     console.log(quotes)
     res.send();
   } else {

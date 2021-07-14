@@ -14,10 +14,12 @@ class CurrentQuote extends React.Component {
     super(props)
   }
   render() {
+    console.log('currentquote: ', this.props)
     return (
       <div>
         {/* <div>{'What is props even? props = ' + JSON.stringify(this.props)}</div> */}
         <div>{'this.props.quote = ' + this.props.quote}</div>
+        <button onClick={this.handleGet}>Get</button>
       </div>
     )
   }

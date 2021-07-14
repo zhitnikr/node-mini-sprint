@@ -4,4 +4,6 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App.jsx';
 
-//2
+const domContainer = document.querySelector('#app');
+ReactDOM.render(<App/>, domContainer);
+

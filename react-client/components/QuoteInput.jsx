@@ -20,24 +20,27 @@ class QuoteInput extends React.Component {
     event.preventDefault();
     console.log('you hit submit!');
   }
-  handleGet(event) {
-    event.preventDefault();
-    console.log('you hit get!');
-    axios.get('http://localhost:3000/quotes')
-        .then(response => this.setState({quote: response.data}),
-        console.log(response.data.total),
-        )
-        .catch(error => {
-            this.setState({ quote: 'No quotes' });
-            console.error('There was an error!', error);
-        });
-  }
-//2
+  // handleGet(event) {
+  //   event.preventDefault();
+  //   // console.log('you hit get!'); WORKS
+  //   axios.get('http://localhost:3000/quotes')
+  //       .then(response => {
+  //         console.log(response.data);
+  //         // this.props({quote: response.data});
+  //       }
+  //       )
+  //       .catch(error => {
+  //           this.props({ quote: 'No quotes' });
+  //           console.error('There was an error!', error);
+  //       });
+  // }
+
   render() {
+    // console.log('This is the quoteINput props: ', this.props)
     return (
       <div>
         < input value={this.state.value} onChange={this.handleChange} />
-        <button onClick={this.handleSubmit}>Submit</button><button onClick={this.handleGet}>Get</button>
+        <button onClick={this.handleSubmit}>Submit</button>
       </div>
     )
   }

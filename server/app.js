@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors')
 // const router = express.Router(); // ? is this necessary ?
 const app = express();
+const path = require('path');
 // const bodyParser = require('body-parser');
 app.use(cors());
 app.use(express.json());
@@ -28,14 +29,14 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
-//2
-app.get('/quote', (req, res) => {
+
+app.get('/quotes', (req, res) => {
   console.log('this is a get mhan')
   // console.log(res.body)
   res.send(quotes[getRandomInt(0, quotes.length - 1)])
 })
 
-app.post('/quote', (req, res) => {
+app.post('/quotes', (req, res) => {
   // res.setHeader('Content-Type', 'application/json');
   // console.log('what is the req body: ', req.body);
   if (Object.keys(req.body)[0].length > 0) {
@@ -48,7 +49,9 @@ app.post('/quote', (req, res) => {
 })
 
 // const server = http.createServer(handleRequest);
+// app.use(express.static('../react-client/dist'))
+app.use(express.static(path.join(__dirname, '../react-client/dist')))
 app.listen(port);
-
+console.log('checkdirname: ', __dirname.toString())
 console.log('Server is running in the terminal!');
 console.log(`Listening on http://localhost:${port}`);

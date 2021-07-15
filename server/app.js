@@ -1,6 +1,6 @@
 const express = require('express');
-const { connection } = require('./db')
-const { getAll } = require('./model')
+const db = require('./db')
+const { getAll, create } = require('./model')
 const cors = require('cors')
 // const router = express.Router(); // ? is this necessary ?
 const app = express();
@@ -39,22 +39,23 @@ app.get('/quotes', (req, res) => {
     quotes = result.map((item) => {
       return item.quote
     })
+    console.log('this is quotes ', quotes)
     res.send(quotes[getRandomInt(0, quotes.length)])
   })
 })
 
 app.post('/quotes', (req, res) => {
-  // res.setHeader('Content-Type', 'application/json');
-  // console.log('what is the req body: ', req.body);
-  // SQL COMMAND HERE
-  if (Object.values(req.body)[0].length > 0 ) {
-    quotes.push(Object.values(req.body)[0]);
-    console.log(quotes)
-    res.send();
-  } else {
-    res.err()
-  }
-})
+  if (req.body.quote) {
+    create(req.body.quote, (err, results) => {
+      if (err) {
+        // console.error(err)
+      } else {
+        console.log('Sent it: ', results)
+        res.send();
+      }
+    })}})
+    // quotes.push(Object.values(req.body)[0]);
+    // console.log(quotes)
 
 // const server = http.createServer(handleRequest);
 // app.use(express.static('../react-client/dist'))

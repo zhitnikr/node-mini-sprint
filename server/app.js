@@ -1,5 +1,6 @@
 const express = require('express');
 const { connection } = require('./db')
+const { getAll } = require('./model')
 const cors = require('cors')
 // const router = express.Router(); // ? is this necessary ?
 const app = express();
@@ -16,13 +17,13 @@ const port = 3000;
 // const http = require('http');
 
 // TODO: Fill with strings of your favorite quotes :)
-const quotes = [
-  'Cheeki Breeki',
-  'Winner winner chiken Dinner',
-  'To be or not to be',
-  'four twenty',
-  'Math'
-];
+// const quotes = [
+  // 'Cheeki Breeki',
+  // 'Winner winner chiken Dinner',
+  // 'To be or not to be',
+  // 'four twenty',
+  // 'Math'
+// ];
 
 //Utility Function to return a random integer
 function getRandomInt(min, max) {
@@ -33,9 +34,13 @@ function getRandomInt(min, max) {
 
 app.get('/quotes', (req, res) => {
   // SQL COMMAND HERE
-  console.log('this is a get mhan')
-  // console.log(res.body)
-  res.send(quotes[getRandomInt(0, quotes.length - 1)])
+  let quotes = [];
+  getAll((err, result) => {
+    quotes = result.map((item) => {
+      return item.quote
+    })
+    res.send(quotes[getRandomInt(0, quotes.length)])
+  })
 })
 
 app.post('/quotes', (req, res) => {
